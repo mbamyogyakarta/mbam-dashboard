@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DASHBOARD DATA MBAM</title>
+  <link rel="icon" href="https://logotyp.us/file/bri.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #f0f8ff, #d1e7ff);
+      min-height: 100vh;
+      position: relative;
+      color: #333;
+      font-size: 16px;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: rgba(0, 123, 255, 0.1);
+      filter: blur(120px);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    body::before {
+      top: -100px;
+      left: -100px;
+    }
+
+    body::after {
+      bottom: -100px;
+      right: -100px;
+    }
+
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.05;
+      z-index: 0;
+      width: 400px;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      font-size: 16px;
+    }
+
+    li {
+      margin: 12px 0;
+    }
+
+    .button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #0056b3;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 8px 0;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+	
+	ul {
+  list-style-type: none;
+  padding: 0;
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+
+
+    .button i {
+      margin-right: 8px;
+    }
+
+    .button:hover {
+      background-color: #004090;
+      transform: scale(1.05);
+    }
+
+	
+    .btn-hijau {
+      background-color: #2e7d32;
+    }
+
+    .btn-hijau:hover {
+      background-color: #1b5e20;
+    }
+
+    /* Khusus tombol Rencana (merah bata) */
+    .btn-rencana {
+      background-color: #B22222;
+    }
+
+    .btn-rencana:hover {
+      background-color: #8B1A1A;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: red;
+      font-weight: bold;
+    }
+
+    .password-section {
+      display: none;
+      margin-top: 10px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      width: 80%;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: 90%;
+        padding: 15px;
+      }
+      .button {
+        display: block;
+        width: auto;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="https://logotyp.us/file/bri.svg" alt="Watermark BRI" class="watermark" />
+  <div class="container">
+    <img src="https://logotyp.us/file/bri.svg" alt="Logo BRI" width="150" />
+    <h1>DASHBOARD DATA MBAM</h1>
+    <p>Pilih data yang tersedia:</p>
+    <ul>
+      <li>
+        <button class="button btn-rencana" onclick="togglePassword('sectionRencana')">
+          <i class="fas fa-lock"></i> RENCANA AKTIVITAS HARIAN MBM
+        </button>
+        <div id="sectionRencana" class="password-section">
+          <input type="password" id="passwordRencana" placeholder="🔒 Masukkan password untuk membuka data" />
+          <br />
+          <button class="button btn-rencana" onclick="checkPassword('passwordRencana', 'https://docs.google.com/spreadsheets/d/1lwJoXxiNvkrsZpNQP92Ei7APFApLjNsvav-DwRl09e0/edit?usp=sharing', 'RENCANA')">
+            <i class="fas fa-unlock"></i> Akses
+          </button>
+        </div>
+      </li>
+     
+      <li>
+        <a class="button btn-hijau" href="https://docs.google.com/spreadsheets/d/17k8FSLvCiTgz2pUTyzKXLXe-RO8x7plT/edit?usp=sharing&ouid=103240218599301318997&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-folder-open"></i> CNPL AWAL MEI 2025
+        </a>
+      </li>
+	   <li>
+        <a class="button btn-hijau" href=" https://docs.google.com/spreadsheets/d/1giAGzs7sUSlFOHaV5LsxONEAOj1Om8rx/edit?usp=sharing&ouid=103240218599301318997&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-folder-open"></i> NEW SML 29 APRIL 2025
+        </a>
+      </li>
+      <li>
+	  <li>
+        <a class="button btn-hijau" href="https://drive.google.com/drive/folders/1IGdfFILcP2OY-mzSqiUla5jaeSaA6Y_k?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-folder-open"></i> TUNGGAKAN KECIL HARIAN
+        </a>
+      </li>
+      <li>
+        <a class="button btn-hijau" href="https://drive.google.com/drive/folders/1afaQfubqqdPG0TdEyJ-xjpcEoSme8ubS?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-folder-open"></i> TUNGGAKAN PUNYA SIMPANAN HARIAN
+        </a>
+      </li>
+	   <li>
+        <a class="button" href="https://drive.google.com/drive/folders/1z1XGE1cCFN6mqYSYq6rtxwjo3Mf1-Jsy?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-folder-open"></i> KINERJA HARIAN WILAYAH MBAM 2025
+        </a>
+      </li>
+	   <li>
+        <a class="button" href="https://drive.google.com/drive/folders/1T7yqShzeR2pT5B9RY5b7M82GPAjjuUcp?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-folder-open"></i> LW321 31 MARET 2025
+        </a>
+      </li>
+      <li>
+        <a class="button" href="https://drive.google.com/drive/folders/1C_tI21dqTYKMoqYASEme2g1tQQGE9gy9?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-file-alt"></i> DATA KEKURANGAN KLAIM APRIL 2025
+        </a>
+      </li>
+      <li>
+        <a class="button" href="https://drive.google.com/drive/folders/1ac6pF05rOhkng1rExhDWQfs64ati0EWc?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-folder-open"></i> PIPELINE EKSPANSI UPDATE 22 APRIL 2025
+        </a>
+      </li>
+      
+      <li>
+        <a class="button" href="https://drive.google.com/drive/folders/1i1yVbQAUfF8TLB9ZQXLMS0ECJWg3-ljG?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-folder-open"></i> DATA PINJAMAN BELUM AGF & AFT
+        </a>
+      </li>
+      <li>
+        <button class="button" onclick="togglePassword('sectionMantri')">
+          <i class="fas fa-lock"></i> DATA MANTRI BELUM REAL
+        </button>
+        <div id="sectionMantri" class="password-section">
+          <input type="password" id="passwordMantri" placeholder="🔒 Masukkan password untuk membuka data" />
+          <br />
+          <button class="button" onclick="checkPassword('passwordMantri', 'https://docs.google.com/spreadsheets/d/14WmhLXjf01rYnEBeiTBrUI0QfD389ie_Fqp20wekXdk/edit?usp=sharing', 'MANTRI')">
+            <i class="fas fa-unlock"></i> Akses
+          </button>
+        </div>
+      </li>
+    </ul>
+    <p class="footer">⚠️ Perhatian: Data ini bersifat INTERNAL dan tidak untuk dibagikan ke pihak luar.</p>
+  </div>
+
+  <script>
+    function togglePassword(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+      if (section.style.display === 'block') {
+        section.querySelector('input[type="password"]').focus();
+      }
+    }
+
+    function checkPassword(inputId, link, label) {
+      const input = document.getElementById(inputId).value;
+      const passwords = {
+        MANTRI: "MBAM",
+        RENCANA: "MBAM"
+      };
+
+      if (input === passwords[label]) {
+        alert("✅ Password benar. Membuka data...");
+        window.open(link, '_blank');
+      } else {
+        alert("❌ Password salah. Silakan coba lagi.");
+        document.getElementById(inputId).value = '';
+      }
+    }
+  </script>
+  
+ <footer style="text-align:center; margin-top:20px;">
+  <p>
+    Pengunjung total: <span id="busuanzi_value_site_pv"></span> |
+    Online sekarang: <span id="busuanzi_value_site_uv"></span>
+  </p>
+</footer>
+</body>
+</html>
+
+
