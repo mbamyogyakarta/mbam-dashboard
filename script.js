@@ -4,7 +4,9 @@ async function login() {
   const response = await fetch("users.json");
   const data = await response.json();
 
-  if (data.passwords.includes(inputPassword)) {
+  const user = data.users.find(u => u.password === inputPassword);
+
+  if (user) {
     window.location.href = "dashboard.html";
   } else {
     alert("Password salah!");
